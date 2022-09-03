@@ -9,9 +9,11 @@ export class WeatherService {
    * get list of countries
    * @returns list of countries observable
    */
-  getWeather(country: string) {
+  getWeather(country: string, metric: boolean) {
     return this.http.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${country}&APPID=794ee95e63c5a32aaf88cd813fa2e425`
+      `https://api.openweathermap.org/data/2.5/weather?q=${country}&APPID=794ee95e63c5a32aaf88cd813fa2e425&units=${
+        metric ? 'metric' : 'imperial'
+      }`
     );
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../countries/service/countries.service';
 import { WeatherService } from '../service/weather.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-weather',
@@ -12,13 +13,30 @@ export class WeatherComponent implements OnInit {
     private countriesService: CountriesService
   ) {}
 
-  weatherData = [];
+  weatherData$!: Observable<any>;
+
+  //units
+  metric = true;
 
   ngOnInit() {
-    this.weatherService
-      .getWeather(this.countriesService.getSelectedCountry())
-      .subscribe((resp) => {
-        console.log(resp);
-      });
+    this.getWeatherData();
+  }
+
+  toggleUnits() {
+    this.metric = !this.metric;
+    this.getWeatherData();
+  }
+
+  getCountry(): string {
+    return this.countriesService.getSelectedCountry();
+  }
+
+  getWeatherData() {
+    if (this.getCountry()) {
+      this.weatherData$ = this.weatherService.getWeather(
+        this.countriesService.getSelectedCountry(),
+        this.metric
+      );
+    }
   }
 }

@@ -8,7 +8,7 @@ import { Country } from 'src/app/shared/models';
       class="w-full h-full border border-gray-300 rounded-sm overflow-y-scroll p-3"
     >
       <div class="grid grid-cols-9 gap-12 justify-around">
-        <div class="w-24 h-12" *ngFor="let country of countries">
+        <div class="w-auto h-12" *ngFor="let country of countries">
           <a
             class="block p-2 bg-white cursor-pointer active:bg-orange-300 rounded-md border border-gray-200 shadow-md hover:bg-orange-200"
             [ngClass]="{ 'bg-orange-400': selectedCountry === country.name }"
