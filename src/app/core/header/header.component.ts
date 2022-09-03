@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-header',
   template: `
     <nav
-      class="flex items-center justify-between flex-wrap bg-teal-600 p-6 w-full"
+      class="flex items-center justify-between flex-wrap bg-orange-600 p-6 w-full"
     >
       <div class="flex items-center flex-no-shrink text-white mr-6">
         <span class="font-semibold text-xl tracking-tight">Weather App</span>
@@ -15,6 +15,7 @@ import { Component } from '@angular/core';
             *ngFor="let item of menuItems"
             class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4 cursor-pointer"
             [routerLink]="item"
+            [routerLinkActive]="['text-white']"
           >
             {{ item }}
           </a>
@@ -26,5 +27,5 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   constructor() {}
 
-  menuItems = ['Countries'];
+  menuItems = ['Countries', 'Weather'];
 }

@@ -3,14 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'Countries',
+    path: '',
     loadChildren: () =>
-      import('./feature/countries/countries.module').then(
-        (path) => path.CountriesModule
-      ),
+      import('./feature/feature.module').then((path) => path.FeatureModule),
   },
-
-  { path: '', redirectTo: '/Countries', pathMatch: 'full' },
 ];
 
 @NgModule({

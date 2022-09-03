@@ -4,9 +4,7 @@ import { CountriesService } from '../service/countries.service';
 
 @Component({
   selector: 'app-countries',
-  template: `
-    <div class="w-full h-full border border-gray-400 rounded-sm p-4"></div>
-  `,
+  templateUrl: './countries.component.html',
 })
 export class CountriesComponent implements OnInit {
   //list of countries to be displayed
@@ -15,11 +13,17 @@ export class CountriesComponent implements OnInit {
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit() {
-    //get countries through service map data get names and iso codes
+    //get countries through service
     this.countriesService.getCountries().subscribe((data: any) => {
-      data.data.forEach((country: Country) => {
-        this.countries.push(country);
+      data.data.forEach((country: any) => {
+        this.countries.push(
+          new Country(country.country, country.iso2, country.iso3)
+        );
       });
     });
+  }
+
+  setCountry(country: string) {
+    this.countriesService.setSelectedCountry(country);
   }
 }

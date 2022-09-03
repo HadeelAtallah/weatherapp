@@ -1,8 +1,8 @@
 export class Country {
   constructor(
-    private name: string,
+    public name: string,
     //used to get capital city
-    private iso2: string,
-    private cities: string[]
+    public iso2: string,
+    public cities: string[]
   ) {}
 }

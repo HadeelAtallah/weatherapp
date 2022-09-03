@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Country } from 'src/app/shared/models';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
   countriesApi = environment.countriesApi;
   constructor(private http: HttpClient) {}
+
+  selectedCountry = '';
+
+  setSelectedCountry(country: string) {
+    this.selectedCountry = country;
+  }
+
+  getSelectedCountry() {
+    return this.selectedCountry;
+  }
 
   /**
    * get list of countries
