@@ -8,6 +8,7 @@ export class CountriesService {
   countriesApi = environment.countriesApi;
   constructor(private http: HttpClient) {}
 
+  //selected country
   selectedCountry = '';
 
   setSelectedCountry(country: string) {

@@ -5,6 +5,10 @@ Development server
 
 ## Installing dependencies
 
+To clone the project, run `git clone https://github.com/HadeelAtallah/weatherapp.git`
+
+## Installing dependencies
+
 To install dependencies, run `yarn install`. If you don't have yarn installed run `npm install --global yarn`
 
 ## Development server
