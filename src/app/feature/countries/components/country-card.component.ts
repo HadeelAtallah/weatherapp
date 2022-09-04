@@ -4,9 +4,7 @@ import { Country } from 'src/app/shared/models';
 @Component({
   selector: 'app-country-card',
   template: `
-    <div
-      class="w-full h-full border border-gray-300 rounded-sm overflow-y-scroll p-3"
-    >
+    <div class="w-full h-full border border-gray-300 rounded-sm p-3">
       <div class="grid grid-cols-9 gap-12 justify-around">
         <div class="w-auto h-12" *ngFor="let country of countries">
           <a

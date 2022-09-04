@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-header',
   template: `
     <nav
-      class="flex items-center justify-between flex-wrap bg-orange-600 p-6 w-full"
+      class="flex items-center justify-between flex-wrap bg-orange-600 p-6 w-full fixed top-0"
     >
       <div class="flex items-center flex-no-shrink text-white mr-6">
         <span class="font-semibold text-xl tracking-tight">Weather App</span>

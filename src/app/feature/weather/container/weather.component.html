@@ -1,27 +1,32 @@
 <div class="h-full w-full p-3">
-  <div class="flex w-full h-12">
-    <button
-      class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full absolute top-14 right-0"
-      (click)="toggleUnits()"
-    >
-      {{ metric ? "Metric" : "Imperial" }}
-    </button>
+  <button
+    class="bg-orange-300 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full absolute top-14 right-2"
+    (click)="toggleUnits()"
+  >
+    {{ metric ? "Imperial" : "Metric" }}
+  </button>
+
+  <div
+    class="w-full h-full flex flex-row mx-auto space-x-4 justify-center items-center"
+    *ngIf="weatherData$ | async as data; else noData"
+  >
+    <app-temperature-card
+      [tempData]="data"
+      [units]="metric"
+    ></app-temperature-card>
+    <app-weather-card
+      [weatherData]="data"
+      [units]="metric"
+      [country]="getCountry()"
+    ></app-weather-card>
+    <app-wind-card [windData]="data" [units]="metric"></app-wind-card>
   </div>
 
-  <div class="flex justify-center align-middle w-full">
+  <ng-template #noData>
     <div
-      class="grid grid-cols-3 gap-2 justify-evenly"
-      *ngIf="weatherData$ | async as data"
+      class="w-full h-full flex flex-row mx-auto space-x-4 justify-center items-center"
     >
-      <app-weather-card
-        [weatherData]="data"
-        [units]="metric"
-        [country]="getCountry()"
-      ></app-weather-card>
-      <app-temperature-card
-        [tempData]="data"
-        [units]="metric"
-      ></app-temperature-card>
+      <h4 class="text-lg">Please select a country to view weather data</h4>
     </div>
-  </div>
+  </ng-template>
 </div>

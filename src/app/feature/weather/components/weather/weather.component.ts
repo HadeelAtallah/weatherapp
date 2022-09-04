@@ -53,7 +53,6 @@ export class WeatherCardComponent {
     if (data) {
       let main = data.weather[0];
       this.data = new Weather(main.main, main.description);
-      console.log(this.data);
     }
   }
 }

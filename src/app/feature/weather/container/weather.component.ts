@@ -16,21 +16,24 @@ export class WeatherComponent implements OnInit {
   weatherData$!: Observable<any>;
 
   //units
-  metric = true;
+  metric = false;
 
   ngOnInit() {
     this.getWeatherData();
   }
 
+  //toggle units
   toggleUnits() {
     this.metric = !this.metric;
     this.getWeatherData();
   }
 
+  //get selected country from countries service
   getCountry(): string {
     return this.countriesService.getSelectedCountry();
   }
 
+  //get weather data if a country is selected
   getWeatherData() {
     if (this.getCountry()) {
       this.weatherData$ = this.weatherService.getWeather(

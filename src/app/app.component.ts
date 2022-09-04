@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <app-header></app-header>
-    <div class="flex w-full h-full dashboard p-3">
+    <div class="w-full p-3 mt-20">
       <router-outlet></router-outlet>
     </div>
   `,

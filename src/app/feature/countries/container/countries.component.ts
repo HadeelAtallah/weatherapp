@@ -12,6 +12,7 @@ export class CountriesComponent implements OnInit, OnDestroy {
   countries: Country[] = [];
 
   countriesSub?: Subscription;
+
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit() {
